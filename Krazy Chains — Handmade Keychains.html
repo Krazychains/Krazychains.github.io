@@ -1,0 +1,1042 @@
+<!doctype html><html lang="en"><head><meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body><title>Krazy Chains — Handmade Keychains</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"><style id="page-style">
+  :root{
+    --bg:#F1ECDF;
+    --bg-soft:#FBF8F1;
+    --card:#FFFFFF;
+    --ink:#26261D;
+    --ink-soft:#63614F;
+    --accent:#3F6B4C;
+    --accent-ink:#FFFFFF;
+    --brass:#B4842C;
+    --line:#DCD3BC;
+    --danger:#AE4230;
+    --ring:#8FA997;
+    --radius:10px;
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --bg:#1C1B15;
+      --bg-soft:#242219;
+      --card:#2B2A20;
+      --ink:#F1ECDE;
+      --ink-soft:#B9B39B;
+      --accent:#6FA484;
+      --accent-ink:#12241A;
+      --brass:#D6A550;
+      --line:#3C3A2C;
+      --ring:#4E5F52;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1C1B15;
+    --bg-soft:#242219;
+    --card:#2B2A20;
+    --ink:#F1ECDE;
+    --ink-soft:#B9B39B;
+    --accent:#6FA484;
+    --accent-ink:#12241A;
+    --brass:#D6A550;
+    --line:#3C3A2C;
+    --ring:#4E5F52;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Work Sans', system-ui, sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand{
+    font-family:'Space Grotesk', system-ui, sans-serif;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  button{font-family:inherit;}
+  img{max-width:100%;display:block;}
+  #app{min-height:100vh;display:flex;flex-direction:column;}
+
+  /* pegboard header */
+  header.site-header{
+    background-image: radial-gradient(var(--line) 1.3px, transparent 1.3px);
+    background-size: 22px 22px;
+    border-bottom:1px solid var(--line);
+    background-color:var(--bg-soft);
+  }
+  .header-inner{
+    max-width:1100px;margin:0 auto;padding:18px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  }
+  .brand{font-size:1.35rem;font-weight:700;display:flex;align-items:center;gap:10px;cursor:pointer;background:none;border:none;color:var(--ink);padding:0;}
+  .brand .peg{
+    width:14px;height:14px;border-radius:50%;background:var(--brass);
+    box-shadow:0 10px 0 -3px var(--brass);
+    position:relative;top:-2px;
+  }
+  nav.site-nav{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+  nav.site-nav a, .nav-btn{
+    font-size:0.92rem;padding:8px 14px;border-radius:999px;text-decoration:none;
+    color:var(--ink-soft);cursor:pointer;border:1px solid transparent;background:none;
+  }
+  nav.site-nav a.active, .nav-btn.active{
+    background:var(--card);border-color:var(--line);color:var(--ink);font-weight:500;
+  }
+  .edit-toggle{
+    border:1px solid var(--accent);color:var(--accent);background:none;
+    padding:7px 14px;border-radius:999px;font-size:0.88rem;cursor:pointer;font-weight:500;
+  }
+  .edit-toggle.on{background:var(--accent);color:var(--accent-ink);}
+
+  main{flex:1;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  .band{padding:64px 0;}
+  .band + .band{border-top:1px solid var(--line);}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;}
+  @media (max-width:820px){.hero{grid-template-columns:1fr;}}
+  .hero h1{font-size:clamp(2.1rem,4.2vw,3.1rem);font-weight:700;line-height:1.08;}
+  .hero p.sub{margin-top:16px;color:var(--ink-soft);font-size:1.08rem;max-width:46ch;}
+  .hero-actions{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;
+    background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;
+    border:none;cursor:pointer;font-size:0.98rem;
+  }
+  .btn.secondary{background:none;border:1px solid var(--line);color:var(--ink);}
+  .btn.danger{background:var(--danger);color:#fff;}
+  .btn:disabled{opacity:0.55;cursor:not-allowed;}
+  .hero-art{
+    position:relative;aspect-ratio:1/1;border-radius:16px;overflow:hidden;
+    background:var(--card);border:1px solid var(--line);
+  }
+  .hero-art img{width:100%;height:100%;object-fit:cover;}
+  .hero-art .placeholder{
+    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    color:var(--ink-soft);font-size:0.9rem;text-align:center;padding:20px;
+  }
+
+  /* about */
+  .about{display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;align-items:center;}
+  @media (max-width:820px){.about{grid-template-columns:1fr;}}
+  .about-img{border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--card);}
+  .about-img img{width:100%;height:100%;object-fit:cover;}
+  .about-img .placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:0.85rem;}
+  .about h2{font-size:1.7rem;}
+  .about p{color:var(--ink-soft);margin-top:14px;white-space:pre-wrap;}
+
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap;}
+  .section-head h2{font-size:1.6rem;}
+  .section-head a.link{font-size:0.92rem;color:var(--accent);text-decoration:none;font-weight:500;}
+
+  /* product grid — hanging cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:26px 22px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px 16px 18px;position:relative;margin-top:14px;
+  }
+  .card .hook{
+    position:absolute;top:-13px;left:22px;width:14px;height:14px;border-radius:50%;
+    background:var(--bg);border:2px solid var(--brass);
+  }
+  .card .hook::after{
+    content:"";position:absolute;top:12px;left:5px;width:2px;height:12px;background:var(--brass);
+  }
+  .card:nth-child(3n+1){transform:rotate(-0.6deg);}
+  .card:nth-child(3n+2){transform:rotate(0.4deg);}
+  .card:nth-child(3n){transform:rotate(-0.2deg);}
+  .card-img{
+    aspect-ratio:1/1;border-radius:7px;overflow:hidden;background:var(--bg-soft);
+    border:1px solid var(--line);margin-bottom:12px;
+  }
+  .card-img img{width:100%;height:100%;object-fit:cover;}
+  .card-img .placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:0.78rem;text-align:center;padding:10px;}
+  .card h3{font-size:1.02rem;font-weight:600;}
+  .card .tag{display:inline-block;margin-top:6px;font-size:0.74rem;color:var(--accent);border:1px solid var(--ring);padding:2px 9px;border-radius:999px;}
+  .card .price{margin-top:10px;font-weight:700;font-family:'Space Grotesk',sans-serif;color:var(--brass);}
+  .card .desc{margin-top:8px;color:var(--ink-soft);font-size:0.88rem;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  .card-actions{margin-top:14px;display:flex;gap:8px;}
+  .card-actions .btn{padding:9px 16px;font-size:0.86rem;flex:1;justify-content:center;}
+  .card-admin-actions{position:absolute;top:10px;right:10px;display:flex;gap:6px;}
+  .icon-btn{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:7px;
+    width:28px;height:28px;display:flex;align-items:center;justify-content:center;
+    cursor:pointer;font-size:0.85rem;color:var(--ink-soft);
+  }
+
+  .search-row{display:flex;gap:10px;margin-bottom:30px;flex-wrap:wrap;}
+  .search-box{
+    flex:1;min-width:220px;display:flex;align-items:center;gap:10px;
+    background:var(--card);border:1px solid var(--line);border-radius:999px;padding:11px 18px;
+  }
+  .search-box input{border:none;background:none;outline:none;font-size:0.97rem;color:var(--ink);width:100%;font-family:inherit;}
+  .search-box svg{flex-shrink:0;opacity:0.6;}
+  .empty-note{color:var(--ink-soft);padding:40px 0;text-align:center;}
+
+  /* listing detail */
+  .listing-detail{display:grid;grid-template-columns:1fr 1fr;gap:44px;}
+  @media (max-width:760px){.listing-detail{grid-template-columns:1fr;}}
+  .listing-detail .img-wrap{border-radius:14px;overflow:hidden;border:1px solid var(--line);aspect-ratio:1/1;background:var(--card);}
+  .listing-detail .img-wrap img{width:100%;height:100%;object-fit:cover;}
+  .listing-detail .img-wrap .placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);}
+  .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--ink-soft);text-decoration:none;font-size:0.9rem;margin-bottom:22px;cursor:pointer;background:none;border:none;padding:0;}
+  .listing-detail .price{font-size:1.4rem;font-family:'Space Grotesk',sans-serif;color:var(--brass);font-weight:700;margin-top:6px;}
+  .listing-detail .desc{margin-top:18px;color:var(--ink-soft);white-space:pre-wrap;}
+  .listing-detail .btn{margin-top:26px;}
+
+  /* contact */
+  .contact-card{max-width:520px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:34px;}
+  .contact-card .item-flag{
+    display:inline-block;background:var(--bg-soft);border:1px solid var(--line);border-radius:999px;
+    padding:6px 14px;font-size:0.84rem;color:var(--ink-soft);margin-bottom:18px;
+  }
+  .contact-card p{color:var(--ink-soft);}
+  .contact-email{
+    margin-top:20px;font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:600;
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  }
+  .copy-note{font-size:0.82rem;color:var(--ink-soft);margin-top:4px;}
+  .contact-leave{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--ink-soft);font-size:0.86rem;}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  /* admin */
+  .admin-banner{background:var(--accent);color:var(--accent-ink);}
+  .admin-banner .wrap{padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:0.88rem;flex-wrap:wrap;}
+  .admin-tabs{display:flex;gap:8px;margin-bottom:32px;border-bottom:1px solid var(--line);flex-wrap:wrap;}
+  .admin-tab{padding:10px 4px;margin-bottom:-1px;background:none;border:none;border-bottom:2px solid transparent;color:var(--ink-soft);cursor:pointer;font-size:0.95rem;}
+  .admin-tab.active{color:var(--ink);border-color:var(--accent);font-weight:600;}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:0.85rem;color:var(--ink-soft);margin-bottom:6px;font-weight:500;}
+  .field input[type=text], .field input[type=email], .field input[type=url], .field textarea{
+    width:100%;padding:10px 13px;border:1px solid var(--line);border-radius:8px;
+    background:var(--bg-soft);color:var(--ink);font-family:inherit;font-size:0.95rem;outline:none;
+  }
+  .field input:focus, .field textarea:focus{border-color:var(--accent);}
+  .field textarea{resize:vertical;min-height:90px;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:600px){.field-row{grid-template-columns:1fr;}}
+  .admin-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:26px;max-width:640px;}
+  .admin-list-row{
+    display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);
+  }
+  .admin-list-row img{width:48px;height:48px;object-fit:cover;border-radius:6px;border:1px solid var(--line);background:var(--bg-soft);}
+  .admin-list-row .ph{width:48px;height:48px;border-radius:6px;border:1px solid var(--line);background:var(--bg-soft);}
+  .admin-list-row .info{flex:1;min-width:0;}
+  .admin-list-row .info .n{font-weight:600;font-size:0.95rem;}
+  .admin-list-row .info .p{font-size:0.85rem;color:var(--ink-soft);}
+  .admin-actions-row{display:flex;gap:8px;}
+  .save-bar{
+    position:sticky;bottom:0;background:var(--card);border-top:1px solid var(--line);
+    padding:14px 24px;display:flex;align-items:center;justify-content:flex-end;gap:12px;
+    box-shadow:0 -6px 16px rgba(0,0,0,0.06);
+  }
+  .save-bar .status{margin-right:auto;font-size:0.86rem;color:var(--ink-soft);}
+  .toast{
+    position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
+    background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:999px;font-size:0.9rem;
+    z-index:50;box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  }
+  .toast.err{background:var(--danger);}
+  .readonly-note{font-size:0.85rem;color:var(--ink-soft);margin-top:10px;}
+  .modal-backdrop{position:fixed;inset:0;background:rgba(20,18,10,0.45);display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;overflow:auto;z-index:40;}
+  .modal{background:var(--card);border-radius:14px;padding:28px;max-width:560px;width:100%;border:1px solid var(--line);}
+  .modal h3{font-size:1.2rem;margin-bottom:20px;}
+  .modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px;}
+
+  /* listing list */
+  .list{border-top:1px solid var(--line);}
+  .row{
+    display:flex;align-items:center;gap:16px;padding:16px 6px;border-bottom:1px solid var(--line);
+    cursor:pointer;
+  }
+  .row:hover{background:var(--bg-soft);}
+  .row-thumb{
+    width:64px;height:64px;border-radius:8px;overflow:hidden;border:1px solid var(--line);
+    background:var(--bg-soft);flex-shrink:0;
+  }
+  .row-thumb img{width:100%;height:100%;object-fit:cover;}
+  .row-main{flex:1;min-width:0;}
+  .row-name{
+    font-family:'Space Grotesk',system-ui,sans-serif;font-weight:600;font-size:1.1rem;
+    color:var(--ink);text-decoration:none;
+  }
+  .row-name:hover{text-decoration:underline;}
+  .row-desc{margin-top:2px;color:var(--ink-soft);font-size:0.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .row-price{font-family:'Space Grotesk',sans-serif;font-weight:700;color:var(--brass);white-space:nowrap;}
+  .row .btn{padding:9px 18px;font-size:0.88rem;}
+  @media (max-width:560px){
+    .row{flex-wrap:wrap;}
+    .row-main{flex-basis:calc(100% - 90px);}
+    .row .btn{margin-left:80px;}
+  }
+  .owner-bar{
+    display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;padding:14px;
+    border:1px dashed var(--ring);border-radius:12px;background:var(--bg-soft);
+  }
+  .owner-bar input{
+    flex:1;min-width:200px;padding:10px 14px;border:1px solid var(--line);border-radius:999px;
+    background:var(--card);color:var(--ink);font-family:inherit;font-size:0.95rem;outline:none;
+  }
+  .owner-bar input:focus{border-color:var(--accent);}
+  .owner-panel{margin-top:44px;max-width:640px;}
+  .owner-panel .modal-actions{justify-content:space-between;}
+
+  /* photo upload field */
+  .img-field{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;}
+  .img-preview{
+    width:96px;height:96px;border-radius:8px;border:1px solid var(--line);background:var(--bg-soft);
+    overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+    color:var(--ink-soft);font-size:0.72rem;text-align:center;
+  }
+  .img-preview img{width:100%;height:100%;object-fit:cover;}
+  .img-controls{flex:1;min-width:200px;}
+  .img-buttons{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .btn.small{padding:8px 16px;font-size:0.86rem;}
+  .img-status{font-size:0.82rem;color:var(--ink-soft);margin-top:8px;min-height:1.2em;}
+  .img-status.err{color:var(--danger);}
+  .img-link-label{display:block;font-size:0.78rem;color:var(--ink-soft);margin:12px 0 4px;}
+  .img-controls input[type=text]{
+    width:100%;padding:8px 11px;border:1px solid var(--line);border-radius:8px;
+    background:var(--bg-soft);color:var(--ink);font-family:inherit;font-size:0.88rem;outline:none;
+  }
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+</style><div id="app"></div><script id="site-data" type="application/json">{"business":{"name":"Krazy Chains","tagline":"Small-batch keychains, cast and carved by hand.","contactEmail":"Krazy.chains.business@gmail.com"},"home":{"heroHeading":"Little charms for your keys, bag, or backpack.","heroSub":"Every keychain is shaped, sanded, and finished by hand in small batches — no two are quite the same. Browse the shop and find one that fits your keys.","heroImage":"/_blob/d79910baa483825f815c547a2fd4d558","aboutHeading":"3D printed slop","aboutText":"","aboutImage":""},"listings":[{"id":"k1","name":"Custom named keychain","price":"","description":"","image":""},{"id":"k2","name":"Dragon skull keychain","price":"","description":"","image":""},{"id":"k3","name":"Custom logo keychain","price":"","description":"","image":""},{"id":"k4","name":"Mini skull keychain","price":"","description":"","image":""}]}</script><script id="app-script">
+(function(){
+  "use strict";
+  var APP_SCRIPT_HTML = document.getElementById('app-script').outerHTML;
+
+  var state = JSON.parse(document.getElementById('site-data').textContent);
+  var route = parseHash();
+  var editMode = false;
+  var canEdit = false;
+  var writerKnown = false; // becomes true once we've confirmed writer status via a publish attempt or user capability
+  var draft = null; // working copy while in admin mode
+  var adminTab = 'home';
+  var dbNS = null; // unused, kept for clarity that we do NOT use db (keeps the store publicly viewable)
+  var artifactNS = null;
+  var assetsNS = null; // photo uploads; only available to people who can edit the site
+  var savingState = 'idle'; // idle | saving | saved | error
+
+  function uid(){ return 'k' + Math.random().toString(36).slice(2,9); }
+
+  function parseHash(){
+    var h = location.hash.replace(/^#\/?/, '');
+    var parts = h.split('?')[0].split('/').filter(Boolean);
+    var query = {};
+    var qi = h.indexOf('?');
+    if (qi >= 0) {
+      h.slice(qi+1).split('&').forEach(function(pair){
+        var kv = pair.split('=');
+        if (kv[0]) query[decodeURIComponent(kv[0])] = decodeURIComponent(kv[1]||'');
+      });
+    }
+    return { view: parts[0] || 'home', id: parts[1] || null, query: query };
+  }
+
+  window.addEventListener('hashchange', function(){
+    route = parseHash();
+    render();
+    window.scrollTo(0,0);
+  });
+
+  function go(hash){ location.hash = hash; }
+
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function mailHref(subject, body){
+    var email = state.business.contactEmail || '';
+    return 'mailto:' + encodeURIComponent(email) + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+
+  function imgOrPlaceholder(url, cls, label){
+    if (url) return '<img src="'+esc(url)+'" alt="'+esc(label||'')+'" loading="lazy">';
+    return '<div class="placeholder">'+esc(label || 'No photo yet')+'</div>';
+  }
+
+  /* ---------------- render shell ---------------- */
+
+  function render(){
+    var app = document.getElementById('app');
+    app.innerHTML = layout();
+    wireGlobal();
+    if (editMode) wireAdmin();
+    else wirePublic();
+  }
+
+  function layout(){
+    var nav = [
+      ['home','Home'],
+      ['store','Store'],
+      ['contact','Contact']
+    ].map(function(item){
+      var active = (route.view === item[0]) ? ' class="active"' : '';
+      return '<a href="#'+item[0]+'"'+active+'>'+item[1]+'</a>';
+    }).join('');
+
+    var editBtn = '';
+    if (canEdit) {
+      editBtn = '<button class="edit-toggle'+(editMode?' on':'')+'" id="edit-toggle-btn">'+(editMode ? 'Exit editing' : 'Edit site') +'</button>';
+    }
+
+    var banner = '';
+    if (editMode) {
+      banner = '<div class="admin-banner"><div class="wrap"><span>You\'re editing the live site. Changes go out to everyone when you save.</span>'+
+        '<span id="save-status" class="status" style="opacity:.85">'+saveStatusText()+'</span></div></div>';
+    }
+
+    var body = editMode ? adminView() : publicView();
+
+    return ''+
+      banner +
+      '<header class="site-header"><div class="header-inner">'+
+        '<button class="brand" id="brand-home-btn"><span class="peg"></span>'+esc(state.business.name)+'</button>'+
+        '<nav class="site-nav">'+nav+editBtn+'</nav>'+
+      '</div></header>'+
+      '<main>'+body+'</main>'+
+      (editMode ? '' : footer());
+  }
+
+  function footer(){
+    return '<footer><div class="wrap">'+
+      '<div>&copy; '+new Date().getFullYear()+' '+esc(state.business.name)+'</div>'+
+      '<div>'+esc(state.business.contactEmail)+'</div>'+
+      '</div></footer>';
+  }
+
+  function saveStatusText(){
+    if (savingState === 'saving') return 'Publishing…';
+    if (savingState === 'saved') return 'Published';
+    if (savingState === 'error') return 'Could not publish — try again';
+    return hasUnsaved() ? 'Unsaved changes' : 'Up to date';
+  }
+
+  function hasUnsaved(){
+    return draft && JSON.stringify(draft) !== JSON.stringify(state);
+  }
+
+  function wireGlobal(){
+    var b = document.getElementById('brand-home-btn');
+    if (b) b.addEventListener('click', function(){ go('home'); });
+    var eb = document.getElementById('edit-toggle-btn');
+    if (eb) eb.addEventListener('click', function(){
+      if (editMode) {
+        if (hasUnsaved() && !confirm('Discard unsaved changes?')) return;
+        editMode = false; draft = null;
+        go('home');
+      } else {
+        draft = JSON.parse(JSON.stringify(state));
+        editMode = true;
+        adminTab = 'home';
+        render();
+      }
+    });
+  }
+
+  /* ---------------- public views ---------------- */
+
+  function publicView(){
+    if (route.view === 'store') return storeView();
+    if (route.view === 'listing') return listingView(route.id);
+    if (route.view === 'contact') return contactView();
+    return homeView();
+  }
+
+  function homeView(){
+    var featured = state.listings.slice(0,4);
+    return '<div class="band"><div class="wrap hero">'+
+      '<div>'+
+        '<h1>'+esc(state.home.heroHeading)+'</h1>'+
+        '<p class="sub">'+esc(state.home.heroSub)+'</p>'+
+        '<div class="hero-actions">'+
+          '<a class="btn" href="#store">Browse the shop</a>'+
+          '<a class="btn secondary" href="#contact">Get in touch</a>'+
+        '</div>'+
+      '</div>'+
+      '<div class="hero-art">'+imgOrPlaceholder(state.home.heroImage,'','')+'</div>'+
+    '</div></div>'+
+    '<div class="band"><div class="wrap about">'+
+      '<div class="about-img">'+imgOrPlaceholder(state.home.aboutImage,'','')+'</div>'+
+      '<div><h2>'+esc(state.home.aboutHeading)+'</h2><p>'+esc(state.home.aboutText)+'</p></div>'+
+    '</div></div>'+
+    (featured.length ? '<div class="band"><div class="wrap">'+
+      '<div class="section-head"><h2>From the shop</h2><a class="link" href="#store">See everything &rarr;</a></div>'+
+      listRows(featured)+
+    '</div></div>' : '');
+  }
+
+  function storeView(){
+    var q = (route.query.q || '').toLowerCase();
+    var items = state.listings.filter(function(l){
+      if (!q) return true;
+      return (l.name+' '+(l.description||'')+' '+(l.tag||'')).toLowerCase().indexOf(q) !== -1;
+    });
+    return '<div class="band"><div class="wrap">'+
+      '<div class="section-head"><h2>Shop keychains</h2></div>'+
+      '<div class="search-row"><div class="search-box">'+
+        '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'+
+        '<input type="text" id="search-input" placeholder="Search keychains…" value="'+esc(route.query.q||'')+'" aria-label="Search keychains">'+
+      '</div></div>'+
+      ownerAddBar()+
+      (items.length ? listRows(items) :
+        '<div class="empty-note">'+(state.listings.length ? 'No keychains match that search.' : 'No keychains listed yet.')+'</div>')+
+    '</div></div>';
+  }
+
+  /* Owner-only: name a new listing right on the store page. */
+  function ownerAddBar(){
+    if (!canEdit) return '';
+    return '<div class="owner-bar">'+
+      '<label class="sr-only" for="new-listing-name">Name for the new listing</label>'+
+      '<input type="text" id="new-listing-name" maxlength="120" placeholder="Name a new listing, e.g. Dragon skull keychain">'+
+      '<button type="button" class="btn small" id="new-listing-btn">Add listing</button>'+
+    '</div>';
+  }
+
+  /* The list: each row opens that keychain's own page; Purchase goes to the contact page. */
+  function listRows(items){
+    return '<div class="list">'+items.map(function(l){
+      var thumb = l.image ? '<div class="row-thumb"><img src="'+esc(l.image)+'" alt="" loading="lazy"></div>' : '';
+      return '<div class="row" data-href="listing/'+esc(l.id)+'">'+
+        thumb+
+        '<div class="row-main">'+
+          '<a class="row-name" href="#listing/'+esc(l.id)+'">'+esc(l.name)+'</a>'+
+          (l.description ? '<div class="row-desc">'+esc(l.description)+'</div>' : '')+
+        '</div>'+
+        (l.price ? '<div class="row-price">'+esc(l.price)+'</div>' : '')+
+        '<button type="button" class="btn purchase-btn" data-id="'+esc(l.id)+'">Purchase</button>'+
+      '</div>';
+    }).join('')+'</div>';
+  }
+
+  function listingView(id){
+    var l = state.listings.find(function(x){ return x.id === id; });
+    if (!l) return '<div class="band"><div class="wrap"><p>That keychain isn\'t in the shop anymore.</p><a class="btn secondary" href="#store">Back to shop</a></div></div>';
+    return '<div class="band"><div class="wrap">'+
+      '<a class="back-link" href="#store">&larr; Back to shop</a>'+
+      '<div class="listing-detail">'+
+        '<div class="img-wrap">'+imgOrPlaceholder(l.image,'',l.name)+'</div>'+
+        '<div>'+
+          '<h1 style="font-size:1.9rem;">'+esc(l.name)+'</h1>'+
+          (l.price ? '<div class="price">'+esc(l.price)+'</div>' : '')+
+          '<div class="desc">'+(l.description ? esc(l.description) : 'Message us for details and to place an order.')+'</div>'+
+          '<button class="btn" id="detail-purchase-btn" data-id="'+esc(l.id)+'">Purchase</button>'+
+        '</div>'+
+      '</div>'+
+      listingEditor(l)+
+    '</div></div>';
+  }
+
+  /* Owner-only: add the photo and description (and edit the name) on the listing's own page. */
+  function listingEditor(l){
+    if (!canEdit) return '';
+    return '<div class="admin-card owner-panel">'+
+      '<h2 style="font-size:1.15rem;margin-bottom:6px;">Edit this listing</h2>'+
+      '<p class="readonly-note" style="margin:0 0 18px;">Only you can see this section.</p>'+
+      field('text','l-name','Name', l.name)+
+      field('text','l-price','Price (optional)', l.price, '$12')+
+      field('textarea','l-desc','Description', l.description)+
+      imageField('l-image','Photo', l.image)+
+      '<div class="modal-actions">'+
+        '<button type="button" class="btn danger small" id="l-delete">Delete listing</button>'+
+        '<button type="button" class="btn" id="l-save">Save changes</button>'+
+      '</div>'+
+    '</div>';
+  }
+
+  function contactView(){
+    var itemId = route.query.item;
+    var item = itemId ? state.listings.find(function(x){ return x.id === itemId; }) : null;
+    var subject = item ? ('Order: ' + item.name) : ('Question for ' + state.business.name);
+    var priceBit = (item && item.price) ? ' ('+item.price+')' : '';
+    var body = item ? ('Hi! I\'d like to order the "'+item.name+'"'+priceBit+'. Here are my details:\n\nName:\nShipping address:\nQuantity:\n') : 'Hi! I had a question about your keychains:\n\n';
+    return '<div class="band"><div class="wrap">'+
+      (item ? '<a class="back-link" href="#listing/'+esc(item.id)+'">&larr; Back to '+esc(item.name)+'</a>'
+            : '<a class="back-link" href="#store">&larr; Back to shop</a>')+
+      '<div class="contact-card">'+
+        (item ? '<div class="item-flag">Interested in: '+esc(item.name)+(item.price ? ' — '+esc(item.price) : '')+'</div>' : '')+
+        '<h2>Get in touch</h2>'+
+        '<p>'+(item ? 'Send us a message and we\'ll confirm your order and get you sorted for payment and shipping.' : 'Questions, custom requests, wholesale — just send us a note.')+'</p>'+
+        '<div class="contact-email">'+
+          '<a class="btn" href="'+mailHref(subject, body)+'">Email us</a>'+
+        '</div>'+
+        '<div class="copy-note">Or write to us directly at '+esc(state.business.contactEmail)+'</div>'+
+        '<div class="contact-leave"><a class="btn secondary" href="#store">Keep browsing the shop</a></div>'+
+      '</div>'+
+    '</div></div>';
+  }
+
+  function wirePublic(){
+    var s = document.getElementById('search-input');
+    if (s) {
+      s.addEventListener('input', function(){
+        var v = s.value;
+        var h = 'store' + (v ? ('?q='+encodeURIComponent(v)) : '');
+        history.replaceState(null, '', '#'+h);
+        route = parseHash();
+        var scrollY = window.scrollY;
+        render();
+        window.scrollTo(0, scrollY);
+        document.getElementById('search-input').focus();
+        document.getElementById('search-input').setSelectionRange(v.length, v.length);
+      });
+    }
+    document.querySelectorAll('.purchase-btn').forEach(function(btn){
+      btn.addEventListener('click', function(e){ e.stopPropagation(); go('contact?item='+encodeURIComponent(btn.dataset.id)); });
+    });
+    document.querySelectorAll('.row[data-href]').forEach(function(row){
+      row.addEventListener('click', function(e){
+        if (e.target.closest('a, button')) return; // links and buttons do their own thing
+        go(row.dataset.href);
+      });
+    });
+    var dp = document.getElementById('detail-purchase-btn');
+    if (dp) dp.addEventListener('click', function(){ go('contact?item='+encodeURIComponent(dp.dataset.id)); });
+
+    /* owner: add a listing by name */
+    var nb = document.getElementById('new-listing-btn');
+    var ni = document.getElementById('new-listing-name');
+    if (nb && ni) {
+      var addListing = function(){
+        var name = ni.value.trim();
+        if (!name) { ni.focus(); return; }
+        nb.disabled = true;
+        var next = cloneState();
+        next.listings.push({ id: uid(), name: name, price: '', description: '', image: '' });
+        publishState(next).then(function(ok){ if (!ok) nb.disabled = false; });
+      };
+      nb.addEventListener('click', addListing);
+      ni.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); addListing(); } });
+    }
+
+    /* owner: edit / delete the listing being viewed */
+    var ls = document.getElementById('l-save');
+    if (ls) {
+      var listingId = route.id;
+      wireImageField('l-image', function(){});
+      ls.addEventListener('click', function(){
+        var name = document.getElementById('l-name').value.trim();
+        if (!name) { alert('Give the listing a name first.'); return; }
+        var next = cloneState();
+        var target = next.listings.find(function(x){ return x.id === listingId; });
+        if (!target) return;
+        target.name = name;
+        target.price = document.getElementById('l-price').value.trim();
+        target.description = document.getElementById('l-desc').value.trim();
+        target.image = document.getElementById('l-image').value.trim();
+        ls.disabled = true;
+        publishState(next).then(function(ok){ if (!ok) ls.disabled = false; });
+      });
+      var ld = document.getElementById('l-delete');
+      if (ld) ld.addEventListener('click', function(){
+        var cur = state.listings.find(function(x){ return x.id === listingId; });
+        if (!cur || !confirm('Delete "'+cur.name+'"? This can\'t be undone.')) return;
+        var next = cloneState();
+        next.listings = next.listings.filter(function(x){ return x.id !== listingId; });
+        ld.disabled = true;
+        history.replaceState(null, '', '#store'); // so the reloaded site opens on the store
+        publishState(next).then(function(ok){ if (!ok) ld.disabled = false; });
+      });
+    }
+  }
+
+  function cloneState(){ return JSON.parse(JSON.stringify(state)); }
+
+  /* Publish a new version of the site with `next` as its data. Resolves true on success
+     (the page then reloads itself), false if it couldn't be saved. */
+  function publishState(next){
+    if (!artifactNS) { showToast('Publishing isn’t available in this view.', true); return Promise.resolve(false); }
+    var html = buildHTML(next);
+    if (!html) { showToast('Couldn’t publish: the page styles are missing. Please reload and try again.', true); return Promise.resolve(false); }
+    showToast('Saving…');
+    return artifactNS.publish(html).then(function(){ return true; }).catch(function(err){
+      if (err && err.code === 'not_writer') {
+        canEdit = false; editMode = false; draft = null;
+        showToast('You don’t have permission to publish changes to this site.', true);
+        render();
+      } else if (err && err.code === 'conflict') {
+        showToast('Someone else just published a change — reloading.', true);
+      } else {
+        showToast('Couldn’t save. Please try again.', true);
+      }
+      return false;
+    });
+  }
+
+  /* ---------------- admin views ---------------- */
+
+  function adminView(){
+    var tabs = [['home','Home page'],['listings','Keychains'],['settings','Settings']].map(function(t){
+      return '<button class="admin-tab'+(adminTab===t[0]?' active':'')+'" data-tab="'+t[0]+'">'+t[1]+'</button>';
+    }).join('');
+    var body = adminTab === 'home' ? adminHomeTab() : adminTab === 'listings' ? adminListingsTab() : adminSettingsTab();
+    return '<div class="band"><div class="wrap">'+
+      '<div class="admin-tabs">'+tabs+'</div>'+
+      body+
+    '</div></div>'+
+    '<div class="save-bar">'+
+      '<span class="status">'+saveStatusText()+'</span>'+
+      '<button class="btn secondary" id="discard-btn"'+(hasUnsaved()?'':' disabled')+'>Discard changes</button>'+
+      '<button class="btn" id="save-btn"'+(savingState==='saving'?' disabled':'')+'>'+(savingState==='saving'?'Publishing…':'Save & publish')+'</button>'+
+    '</div>';
+  }
+
+  function adminHomeTab(){
+    var h = draft.home;
+    return '<div class="admin-card">'+
+      field('text','home-heroHeading','Hero heading', h.heroHeading)+
+      field('textarea','home-heroSub','Hero subtext', h.heroSub)+
+      imageField('home-heroImage','Hero image', h.heroImage)+
+      field('text','home-aboutHeading','About heading', h.aboutHeading)+
+      field('textarea','home-aboutText','About text', h.aboutText)+
+      imageField('home-aboutImage','About image', h.aboutImage)+
+    '</div>';
+  }
+
+  /* A photo field: preview + "Upload photo" button, with a paste-a-link fallback. */
+  function imageField(id, label, value){
+    var canUpload = !!assetsNS;
+    return '<div class="field"><label>'+esc(label)+'</label>'+
+      '<div class="img-field" data-img-field="'+id+'">'+
+        '<div class="img-preview" id="'+id+'-preview">'+(value ? '<img src="'+esc(value)+'" alt="">' : 'No photo')+'</div>'+
+        '<div class="img-controls">'+
+          '<div class="img-buttons">'+
+            (canUpload ? '<button type="button" class="btn small" id="'+id+'-pick">Upload photo</button>'+
+              '<input type="file" class="sr-only" id="'+id+'-file" accept="image/png,image/jpeg,image/webp,image/gif" tabindex="-1">' : '')+
+            '<button type="button" class="btn secondary small" id="'+id+'-clear"'+(value?'':' hidden')+'>Remove</button>'+
+          '</div>'+
+          '<div class="img-status" id="'+id+'-status">'+(canUpload ? '' : 'Photo upload isn\'t available right now — paste an image link below instead.')+'</div>'+
+          '<label class="img-link-label" for="'+id+'">Or paste an image link</label>'+
+          '<input type="text" id="'+id+'" value="'+esc(value)+'" placeholder="https://…">'+
+        '</div>'+
+      '</div></div>';
+  }
+
+  function uploadErrorText(err){
+    var code = err && err.code;
+    if (code === 'too_large') return 'That photo is too large. Try a smaller one.';
+    if (code === 'unsupported_type') return 'That file type isn\'t supported. Use a JPG, PNG, WebP or GIF photo.';
+    if (code === 'quota_or_state') return 'The site\'s photo storage is full.';
+    if (code === 'rate_limited') return 'Too many uploads at once — wait a moment and try again.';
+    if (code === 'not_granted' || code === 'capability_disabled' || code === 'capability_removed') return 'Photo upload isn\'t available right now.';
+    return 'Upload failed. Please try again.';
+  }
+
+  /* Shrink big phone photos before upload (keeps the site fast). PNGs stay PNG, GIFs untouched. */
+  function prepareImage(file){
+    return new Promise(function(resolve){
+      if (!/^image\/(png|jpeg|webp)$/.test(file.type)) { resolve(file); return; }
+      var url = URL.createObjectURL(file);
+      var img = new Image();
+      img.onload = function(){
+        var max = 1600;
+        var w = img.naturalWidth, h = img.naturalHeight;
+        var scale = Math.min(1, max / Math.max(w, h));
+        if (scale === 1 && file.size < 1.5 * 1024 * 1024) { URL.revokeObjectURL(url); resolve(file); return; }
+        try {
+          var c = document.createElement('canvas');
+          c.width = Math.max(1, Math.round(w * scale));
+          c.height = Math.max(1, Math.round(h * scale));
+          c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+          URL.revokeObjectURL(url);
+          var outType = file.type === 'image/png' ? 'image/png' : 'image/jpeg';
+          c.toBlob(function(b){ resolve(b || file); }, outType, 0.86);
+        } catch (e) { URL.revokeObjectURL(url); resolve(file); }
+      };
+      img.onerror = function(){ URL.revokeObjectURL(url); resolve(file); };
+      img.src = url;
+    });
+  }
+
+  /* Wire one photo field. `onChange(value)` fires whenever the stored value changes. */
+  function wireImageField(id, onChange){
+    var input = document.getElementById(id);
+    if (!input) return;
+    var preview = document.getElementById(id+'-preview');
+    var status = document.getElementById(id+'-status');
+    var clearBtn = document.getElementById(id+'-clear');
+    var pick = document.getElementById(id+'-pick');
+    var fileEl = document.getElementById(id+'-file');
+
+    function refresh(){
+      var v = input.value.trim();
+      preview.innerHTML = '';
+      if (v) {
+        var im = document.createElement('img');
+        im.alt = '';
+        im.src = v;
+        im.onerror = function(){ preview.textContent = 'Can\'t load this image'; };
+        preview.appendChild(im);
+      } else {
+        preview.textContent = 'No photo';
+      }
+      if (clearBtn) clearBtn.hidden = !v;
+    }
+    function setValue(v){
+      input.value = v;
+      refresh();
+      onChange(v);
+    }
+    input.addEventListener('input', function(){ refresh(); onChange(input.value); });
+    if (clearBtn) clearBtn.addEventListener('click', function(){ status.textContent=''; status.className='img-status'; setValue(''); });
+
+    if (pick && fileEl) {
+      pick.addEventListener('click', function(){ fileEl.click(); });
+      fileEl.addEventListener('change', function(){
+        var file = fileEl.files && fileEl.files[0];
+        fileEl.value = '';
+        if (!file) return;
+        if (!/^image\//.test(file.type)) { status.className='img-status err'; status.textContent='Please choose an image file.'; return; }
+        pick.disabled = true;
+        status.className = 'img-status';
+        status.textContent = 'Uploading…';
+        prepareImage(file).then(function(blob){
+          var opts = blob.type ? undefined : { type: file.type };
+          return assetsNS.upload(blob, opts);
+        }).then(function(res){
+          // Store the durable path (not the temporary URL) so it works on every page version.
+          setValue('/_blob/' + res.id);
+          status.textContent = 'Photo added. Remember to Save & publish.';
+        }).catch(function(err){
+          status.className = 'img-status err';
+          status.textContent = uploadErrorText(err);
+        }).then(function(){ pick.disabled = false; });
+      });
+    }
+  }
+
+  function field(type, id, label, value, placeholder){
+    if (type === 'textarea') {
+      return '<div class="field"><label for="'+id+'">'+esc(label)+'</label><textarea id="'+id+'" placeholder="'+esc(placeholder||'')+'">'+esc(value)+'</textarea></div>';
+    }
+    return '<div class="field"><label for="'+id+'">'+esc(label)+'</label><input type="'+type+'" id="'+id+'" value="'+esc(value)+'" placeholder="'+esc(placeholder||'')+'"></div>';
+  }
+
+  function adminListingsTab(){
+    var rows = draft.listings.map(function(l){
+      return '<div class="admin-list-row">'+
+        (l.image ? '<img src="'+esc(l.image)+'" alt="">' : '<div class="ph"></div>')+
+        '<div class="info"><div class="n">'+esc(l.name)+'</div><div class="p">'+esc(l.price)+(l.tag?' · '+esc(l.tag):'')+'</div></div>'+
+        '<div class="admin-actions-row">'+
+          '<button class="icon-btn admin-edit-listing" data-id="'+esc(l.id)+'" title="Edit">&#9998;</button>'+
+          '<button class="icon-btn admin-delete-listing" data-id="'+esc(l.id)+'" title="Delete">&#10005;</button>'+
+        '</div>'+
+      '</div>';
+    }).join('');
+    return '<div class="admin-card">'+
+      '<div class="section-head" style="margin-bottom:10px;"><h2 style="font-size:1.15rem;">Keychains ('+draft.listings.length+')</h2>'+
+      '<button class="btn" id="add-listing-btn">+ Add keychain</button></div>'+
+      (rows || '<p class="readonly-note">No keychains yet — add your first one.</p>')+
+    '</div>';
+  }
+
+  function adminSettingsTab(){
+    var b = draft.business;
+    return '<div class="admin-card">'+
+      field('text','biz-name','Shop name', b.name)+
+      field('text','biz-tagline','Tagline', b.tagline)+
+      field('email','biz-email','Contact email', b.contactEmail, 'orders@yourshop.com')+
+      '<p class="readonly-note">This is the address the "Purchase" and "Email us" buttons will send messages to.</p>'+
+    '</div>';
+  }
+
+  function wireAdmin(){
+    document.querySelectorAll('.admin-tab').forEach(function(btn){
+      btn.addEventListener('click', function(){ adminTab = btn.dataset.tab; render(); });
+    });
+    bindDraftField('home-heroHeading', ['home','heroHeading']);
+    bindDraftField('home-heroSub', ['home','heroSub']);
+    wireImageField('home-heroImage', function(v){ draft.home.heroImage = v; refreshSaveUI(); });
+    bindDraftField('home-aboutHeading', ['home','aboutHeading']);
+    bindDraftField('home-aboutText', ['home','aboutText']);
+    wireImageField('home-aboutImage', function(v){ draft.home.aboutImage = v; refreshSaveUI(); });
+    bindDraftField('biz-name', ['business','name']);
+    bindDraftField('biz-tagline', ['business','tagline']);
+    bindDraftField('biz-email', ['business','contactEmail']);
+
+    var addBtn = document.getElementById('add-listing-btn');
+    if (addBtn) addBtn.addEventListener('click', function(){ openListingModal(null); });
+    document.querySelectorAll('.admin-edit-listing').forEach(function(btn){
+      btn.addEventListener('click', function(){ openListingModal(btn.dataset.id); });
+    });
+    document.querySelectorAll('.admin-delete-listing').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var l = draft.listings.find(function(x){ return x.id === btn.dataset.id; });
+        if (l && confirm('Delete "'+l.name+'"? This can\'t be undone once you save.')) {
+          draft.listings = draft.listings.filter(function(x){ return x.id !== btn.dataset.id; });
+          render();
+        }
+      });
+    });
+
+    var discardBtn = document.getElementById('discard-btn');
+    if (discardBtn) discardBtn.addEventListener('click', function(){
+      draft = JSON.parse(JSON.stringify(state));
+      render();
+    });
+    var saveBtn = document.getElementById('save-btn');
+    if (saveBtn) saveBtn.addEventListener('click', saveSite);
+  }
+
+  function bindDraftField(id, path){
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', function(){
+      var obj = draft;
+      for (var i=0;i<path.length-1;i++) obj = obj[path[i]];
+      obj[path[path.length-1]] = el.value;
+      refreshSaveUI();
+    });
+  }
+
+  function refreshSaveUI(){
+    var status = document.getElementById('save-status');
+    if (status) status.textContent = saveStatusText();
+    var saveStatusEl = document.querySelector('.save-bar .status');
+    if (saveStatusEl) saveStatusEl.textContent = saveStatusText();
+    var discardBtn = document.getElementById('discard-btn');
+    if (discardBtn) discardBtn.disabled = !hasUnsaved();
+  }
+
+  function openListingModal(id){
+    var existing = id ? draft.listings.find(function(x){ return x.id === id; }) : null;
+    var l = existing || { id: uid(), name:'', price:'', tag:'', description:'', image:'' };
+    var backdrop = document.createElement('div');
+    backdrop.className = 'modal-backdrop';
+    backdrop.innerHTML = '<div class="modal">'+
+      '<h3>'+(existing ? 'Edit keychain' : 'Add keychain')+'</h3>'+
+      field('text','m-name','Name', l.name)+
+      '<div class="field-row">'+field('text','m-price','Price', l.price, '$12')+field('text','m-tag','Category tag (optional)', l.tag, 'Animals')+'</div>'+
+      field('textarea','m-desc','Description', l.description)+
+      imageField('m-image','Photo (optional)', l.image)+
+      '<div class="modal-actions">'+
+        '<button class="btn secondary" id="m-cancel">Cancel</button>'+
+        '<button class="btn" id="m-save">'+(existing?'Save changes':'Add keychain')+'</button>'+
+      '</div>'+
+    '</div>';
+    document.body.appendChild(backdrop);
+    wireImageField('m-image', function(){});
+    backdrop.addEventListener('click', function(e){ if (e.target === backdrop) backdrop.remove(); });
+    document.getElementById('m-cancel').addEventListener('click', function(){ backdrop.remove(); });
+    document.getElementById('m-save').addEventListener('click', function(){
+      var name = document.getElementById('m-name').value.trim();
+      if (!name) { alert('Give the keychain a name first.'); return; }
+      var updated = {
+        id: l.id,
+        name: name,
+        price: document.getElementById('m-price').value.trim(),
+        tag: document.getElementById('m-tag').value.trim(),
+        description: document.getElementById('m-desc').value.trim(),
+        image: document.getElementById('m-image').value.trim()
+      };
+      if (existing) {
+        draft.listings = draft.listings.map(function(x){ return x.id === l.id ? updated : x; });
+      } else {
+        draft.listings.push(updated);
+      }
+      backdrop.remove();
+      render();
+    });
+  }
+
+  /* ---------------- persistence ---------------- */
+
+  /* Rebuild the whole page for publishing: the platform's small head (meta + reset),
+     then the page itself (title, fonts, styles, markup, data, script) inside the body. */
+  function buildHTML(s){
+    var styleEl = document.getElementById('page-style');
+    if (!styleEl) return null; // never publish a page without its styles
+    var head = '<meta charset="utf8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">';
+    var reset = '';
+    var kids = document.head ? Array.prototype.slice.call(document.head.children) : [];
+    kids.forEach(function(el){
+      if (el.tagName === 'META' && el.hasAttribute('charset')) head = head.replace(/<meta charset="[^"]*">/, el.outerHTML);
+    });
+    var viewportEl = document.head && document.head.querySelector('meta[name="viewport"]');
+    if (viewportEl) head = head.replace(/<meta name="viewport"[^>]*>/, viewportEl.outerHTML);
+    for (var i = 0; i < kids.length; i++) {
+      if (kids[i].tagName === 'STYLE' && kids[i].id !== 'page-style') { reset = kids[i].outerHTML; break; }
+    }
+    if (!reset) reset = '<style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>';
+    var title = '<title>'+esc(s.business.name)+' \u2014 Handmade Keychains</title>';
+    var fonts = '<link rel="preconnect" href="https://fonts.googleapis.com">'+
+      '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'+
+      '<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">';
+    var dataScript = '<script id="site-data" type="application/json">'+JSON.stringify(s).replace(/</g,'\\u003c')+'<\/script>';
+    return '<!doctype html><html lang="en"><head>'+head+reset+'</head><body>'+
+      title+fonts+styleEl.outerHTML+
+      '<div id="app"></div>'+dataScript+APP_SCRIPT_HTML+
+      '</body></html>';
+  }
+
+  function showToast(msg, isErr){
+    var t = document.createElement('div');
+    t.className = 'toast' + (isErr ? ' err' : '');
+    t.textContent = msg;
+    document.body.appendChild(t);
+    setTimeout(function(){ t.remove(); }, 3200);
+  }
+
+  function saveSite(){
+    if (!artifactNS) { showToast('Publishing isn\u2019t available in this view.', true); return; }
+    savingState = 'saving';
+    render();
+    var html = buildHTML(draft);
+    if (!html) {
+      savingState = 'error';
+      showToast('Couldn’t publish: the page styles are missing. Please reload and try again.', true);
+      render();
+      return;
+    }
+    artifactNS.publish(html).then(function(){
+      savingState = 'saved';
+      // a successful publish reloads this view automatically
+    }).catch(function(err){
+      savingState = 'error';
+      if (err && err.code === 'not_writer') {
+        canEdit = false; editMode = false; draft = null;
+        showToast('You don\u2019t have permission to publish changes to this site.', true);
+        render();
+        return;
+      }
+      if (err && err.code === 'conflict') {
+        showToast('Someone else just published a change \u2014 reloading.', true);
+        return; // the view will reload on its own
+      }
+      showToast('Couldn\u2019t publish changes. Please try again.', true);
+      render();
+    });
+  }
+
+  /* ---------------- boot ---------------- */
+
+  function boot(){
+    render();
+    Promise.resolve(window.claude && window.claude.use ? window.claude.use('artifact') : null).then(function(ns){
+      artifactNS = ns;
+    }).catch(function(){ artifactNS = null; });
+    Promise.resolve(window.claude && window.claude.use ? window.claude.use('assets') : null).then(function(ns){
+      assetsNS = ns;
+      if (editMode || (canEdit && route.view === 'listing')) render();
+    }).catch(function(){ assetsNS = null; });
+    Promise.resolve(window.claude && window.claude.use ? window.claude.use('user') : null).then(function(userNS){
+      if (!userNS) return false;
+      return userNS.canEdit();
+    }).then(function(result){
+      canEdit = !!result;
+      writerKnown = true;
+      render();
+    }).catch(function(){ canEdit = false; render(); });
+  }
+
+  boot();
+})();
+</script></body></html>
